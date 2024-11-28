@@ -1,23 +1,20 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const BreedSelector = ({ setBreed, setNumImages }) => {
   const [breeds, setBreeds] = useState([]);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBreeds = async () => {
-      setLoading(true);
       try {
         const res = await fetch('https://dog.ceo/api/breeds/list/all');
         const data = await res.json();
         setBreeds(Object.keys(data.message));
       } catch (error) {
         console.error('Error fetching breeds:', error);
-        setBreeds([]);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -32,16 +29,15 @@ const BreedSelector = ({ setBreed, setNumImages }) => {
     navigate('/gallery');
   };
 
-  return loading ? (
-    <div className="loader"></div>
-  ) : (
-    <div>
-      <h1>Choose Your Breed</h1>
-      <p>Select a breed and specify the number of images to build your gallery.</p>
+  return (
+    <main>
+      <h1>Welcome to the Dog Image Gallery</h1>
+      <p>Select a breed and the number of images you'd like to explore.</p>
       <form onSubmit={handleSubmit}>
-        <label>
-          Select Breed:
-          <select name="breed" required>
+        <fieldset>
+          <legend>Choose Your Breed</legend>
+          <label htmlFor="breed">Select Breed:</label>
+          <select id="breed" name="breed" required>
             <option value="" disabled selected>
               Choose a breed
             </option>
@@ -51,14 +47,27 @@ const BreedSelector = ({ setBreed, setNumImages }) => {
               </option>
             ))}
           </select>
-        </label>
-        <label>
-          Number of Images:
-          <input type="number" name="numImages" min="1" max="100" defaultValue="5" required />
-        </label>
-        <button type="submit">Build Your Gallery</button>
+          <label htmlFor="numImages">Number of Images:</label>
+          <input
+            id="numImages"
+            type="number"
+            name="numImages"
+            min="1"
+            max="100"
+            defaultValue="5"
+            required
+          />
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            type="submit"
+          >
+            <FaSearch style={{ marginRight: '8px' }} />
+            Build Your Gallery
+          </motion.button>
+        </fieldset>
       </form>
-    </div>
+    </main>
   );
 };
 

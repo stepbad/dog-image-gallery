@@ -13,6 +13,7 @@ function App() {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // Function to fetch images for the selected breed
   const fetchImages = async () => {
     if (breed) {
       setLoading(true);
@@ -43,28 +44,33 @@ function App() {
               path="/"
               element={
                 <motion.div
-                  initial={{ opacity: 0, x: -100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 100 }}
+                  initial={{ opacity: 0, x: -100 }} // Animation starts off-screen
+                  animate={{ opacity: 1, x: 0 }} // Animates to visible
+                  exit={{ opacity: 0, x: 100 }} // Animates off-screen on exit
                   transition={{ duration: 0.5 }}
                 >
                   <BreedSelector setBreed={setBreed} setNumImages={setNumImages} />
                 </motion.div>
               }
             />
-            <Route
-              path="/gallery"
-              element={
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {loading ? <div className="loader"></div> : <ImageGallery images={images} />}
-                </motion.div>
-              }
-            />
+           <Route
+  path="/gallery"
+  element={
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.5 }}
+    >
+      {loading ? (
+        <div className="loader"></div>
+      ) : (
+        <ImageGallery images={images} breed={breed} />
+      )}
+    </motion.div>
+  }
+/>
+
           </Routes>
         </AnimatePresence>
       </main>

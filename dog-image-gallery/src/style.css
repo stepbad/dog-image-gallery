@@ -1,14 +1,14 @@
 /* Global Styles */
 body {
   font-family: 'Poppins', sans-serif;
-  background: white; /* Clean white background */
+  background: white;
   margin: 0;
   padding: 0;
   color: #333;
 }
 
 header, footer {
-  background-color: #222; /* Dark header and footer */
+  background-color: #222;
   color: white;
   text-align: center;
   padding: 1rem;
@@ -31,121 +31,202 @@ header nav a {
   text-decoration: none;
   font-weight: bold;
   text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
 }
 
 header nav a:hover {
-  color: #ff9800;
+  color: #4db6e2; /* Ice blue hover effect */
+}
+
+footer div a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+footer div a:hover {
+  color: #4db6e2; /* Ice blue hover effect */
 }
 
 /* Main Content Styling */
 main {
   max-width: 1200px;
-  margin: 80px auto; /* Add space below header */
-  padding: 20px;
+  margin: 0 auto;
+  padding: 100px 20px; /* Add space to account for header and footer */
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px); /* Full height minus header/footer height */
 }
 
-/* Center the form and its contents */
+/* Heading and Description Styling */
+main h1 {
+  font-size: 2.5rem; /* Larger font size for the heading */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #4db6e2; /* Ice blue color for the heading */
+}
+
+main p {
+  font-size: 1.2rem; /* Larger font for the description */
+  margin-bottom: 30px;
+  color: #555; /* Subtle gray for the text */
+}
+
+/* Form Styling */
 form {
   background: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 30px; /* Extra padding for a spacious feel */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  max-width: 400px; /* Limit form width */
-  margin-left: auto;
-  margin-right: auto; /* Center horizontally */
-  text-align: center; /* Center align text and inputs */
+  max-width: 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Stack inputs and buttons vertically */
+  gap: 20px; /* Add consistent spacing between form elements */
 }
 
-/* Ensure labels are displayed above inputs */
+form fieldset {
+  border: none;
+  padding: 0;
+}
+
+form legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
 form label {
-  display: block; /* Force labels to take up the full width */
-  text-align: left; /* Align text to the left for better readability */
+  display: block;
+  text-align: left;
   font-size: 1.2rem;
-  margin: 10px 0 5px; /* Add space below the label */
+  margin: 10px 0 5px;
+  color: #333;
 }
 
-/* Center inputs and button within the form */
 form select, form input {
-  width: 100%; /* Make inputs take full width */
-  max-width: 300px; /* Limit width for better layout */
-  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  padding: 15px; /* Larger padding for a modern look */
   font-size: 1rem;
   border: 2px solid #ccc;
   border-radius: 5px;
   margin-bottom: 15px;
+  transition: border-color 0.2s ease;
+}
+
+form select:focus, form input:focus {
+  border-color: #4db6e2; /* Ice blue focus effect */
+  outline: none;
 }
 
 form button {
-  background-color: #4caf50;
+  background-color: #4db6e2;
   color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 15px 20px;
+  font-size: 1.2rem; /* Larger font for emphasis */
   border-radius: 5px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin-top: 10px; /* Add spacing above the button */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
 }
 
+form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: #38a0c3; /* Darker ice blue on hover */
+}
+
+form button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* Gallery Page Message */
+.gallery-message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: capitalize; /* Ensure breed name is properly formatted */
+}
 
 /* Gallery Styling */
 .gallery {
   display: grid;
-  gap: 20px; /* Space between images */
+  gap: 20px;
   margin-top: 20px;
+  padding-bottom: 100px; /* Add space below the gallery for the button */
 }
 
-/* Default: 1 Column for Small Screens */
+/* Default: 1 Column */
 .gallery {
   grid-template-columns: 1fr;
 }
 
-/* For Medium Screens (500px or Wider): 2 Columns */
+/* Medium Screens: 2 Columns */
 @media (min-width: 500px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* For Large Screens (800px or Wider): 3 Columns */
+/* Large Screens: 3 Columns */
 @media (min-width: 800px) {
   .gallery {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* For Extra-Large Screens (1200px or Wider): 4 Columns */
+/* Extra Large Screens: 4 Columns */
 @media (min-width: 1200px) {
   .gallery {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
+.gallery figure {
+  margin: 0;
+  text-align: center;
+}
+
 .gallery img {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for images */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery img:hover {
-  transform: scale(1.1); /* Slight zoom on hover */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* More prominent shadow */
-  filter: brightness(1.2); /* Brighten the image slightly */
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  filter: brightness(1.2);
+}
+
+.gallery figcaption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 /* Navigation Buttons Styling */
 .nav-buttons {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin-top: 20px;
 }
 
 .nav-buttons button {
-  background-color: #4caf50;
+  background-color: #4db6e2;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -157,13 +238,13 @@ form button {
 }
 
 .nav-buttons button:hover {
-  background-color: #45a047;
+  background-color: #38a0c3;
 }
 
 /* Loader Styling */
 .loader {
   border: 4px solid rgba(255, 255, 255, 0.3);
-  border-top: 4px solid #4caf50;
+  border-top: 4px solid #4db6e2;
   border-radius: 50%;
   width: 40px;
   height: 40px;
