@@ -4,6 +4,9 @@ import { FaHome, FaImages } from 'react-icons/fa';
 
 const Header = () => (
   <header>
+    <div className="logo">
+      <span id="firstLogoLetter">S</span>tep<span id="secondLogoLetter">B</span>ad
+    </div>
     <nav>
       <NavLink to="/" className="nav-link">
         <FaHome style={{ marginRight: '8px' }} />

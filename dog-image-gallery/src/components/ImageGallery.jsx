@@ -6,7 +6,7 @@ const ImageGallery = ({ images, breed }) => (
   <section aria-label={`Gallery of ${breed}`}>
     {/* Dynamic Message */}
     <div className="gallery-message">
-      Please enjoy these images of {breed}.
+      Please enjoy these images of {breed} dogs.
     </div>
     <div className="gallery">
       {images.map((img, idx) => (
@@ -30,8 +30,8 @@ const ImageGallery = ({ images, breed }) => (
     <div className="nav-buttons">
       <Link to="/">
         <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           type="button"
         >
           Back to Home
