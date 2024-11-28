@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 
 const BreedSelector = ({ setBreed, setNumImages }) => {
   const [breeds, setBreeds] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Fetch the list of breeds on component mount
   useEffect(() => {
     const fetchBreeds = async () => {
+      setLoading(true);
       try {
         const res = await fetch('https://dog.ceo/api/breeds/list/all');
         const data = await res.json();
@@ -15,22 +16,25 @@ const BreedSelector = ({ setBreed, setNumImages }) => {
       } catch (error) {
         console.error('Error fetching breeds:', error);
         setBreeds([]);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchBreeds();
   }, []);
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     setBreed(formData.get('breed'));
     setNumImages(formData.get('numImages'));
-    navigate('/gallery'); // Redirect to the gallery page
+    navigate('/gallery');
   };
 
-  return (
+  return loading ? (
+    <div className="loader"></div>
+  ) : (
     <div>
       <h1>Choose Your Breed</h1>
       <p>Select a breed and specify the number of images to build your gallery.</p>
@@ -50,14 +54,7 @@ const BreedSelector = ({ setBreed, setNumImages }) => {
         </label>
         <label>
           Number of Images:
-          <input
-            type="number"
-            name="numImages"
-            min="1"
-            max="100"
-            defaultValue="5"
-            required
-          />
+          <input type="number" name="numImages" min="1" max="100" defaultValue="5" required />
         </label>
         <button type="submit">Build Your Gallery</button>
       </form>
