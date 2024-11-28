@@ -77,9 +77,9 @@ footer {
   width: 100%;
   z-index: 1000;
   display: flex;
-  flex-direction: column; /* Stack text and icons vertically */
-  align-items: center; /* Center content horizontally */
-  justify-content: center; /* Center content vertically */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -92,7 +92,7 @@ footer .social-links {
   margin-top: 10px;
   display: flex;
   justify-content: center;
-  gap: 15px; /* Space between icons */
+  gap: 15px;
 }
 
 footer .social-links a {
@@ -103,9 +103,8 @@ footer .social-links a {
 }
 
 footer .social-links a:hover {
-  color: #4db6e2; /* Ice blue hover effect */
+  color: #4db6e2;
 }
-
 
 /* Main Content Styling */
 main {
@@ -203,8 +202,7 @@ form button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease,
-    background-color 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
 }
 
 form button:hover {
@@ -284,6 +282,51 @@ form button[disabled] {
   margin-top: 10px;
   font-size: 0.9rem;
   color: #555;
+}
+
+/* Magnify/Sparkle Effect for Entire Area */
+.magnify-container {
+  position: relative;
+  display: inline-block;
+  padding: 20px 40px; /* Increase the interactive area */
+  overflow: hidden;
+  border-radius: 10px; /* Optional: Add rounded edges */
+}
+
+.magnify-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px; /* Size of the magnifying radius */
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(178, 223, 243, 0.5), transparent);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.magnify-container:hover::before {
+  opacity: 1;
+}
+
+.magnify-container:hover {
+  background: radial-gradient(
+    circle at var(--sparkle-x, 50%) var(--sparkle-y, 50%),
+    rgba(176, 216, 233, 0.8),
+    transparent
+  );
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
 }
 
 /* Navigation Buttons Styling */

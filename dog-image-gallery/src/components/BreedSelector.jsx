@@ -5,14 +5,16 @@ import { motion } from 'framer-motion';
 
 const BreedSelector = ({ setBreed, setNumImages, loading }) => {
   const [breeds, setBreeds] = useState([]);
+  const [selectedBreed, setSelectedBreed] = useState(''); // Controlled state for dropdown
   const navigate = useNavigate();
 
+  // Fetch list of breeds
   useEffect(() => {
     const fetchBreeds = async () => {
       try {
         const res = await fetch('https://dog.ceo/api/breeds/list/all');
         const data = await res.json();
-        setBreeds(Object.keys(data.message));
+        setBreeds(Object.keys(data.message)); // Extract breed names
       } catch (error) {
         console.error('Error fetching breeds:', error);
       }
@@ -24,26 +26,34 @@ const BreedSelector = ({ setBreed, setNumImages, loading }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    setBreed(formData.get('breed'));
+    setBreed(selectedBreed); // Use the controlled state for the breed
     setNumImages(formData.get('numImages'));
     navigate('/gallery');
   };
 
   return (
     <main>
-      <h1>Welcome to the Dog Image Gallery</h1>
-      <p>Select a breed and the number of images you'd like to explore.</p>
+      <div className="magnify-container">
+        <h1>Welcome to the Dog Image Gallery</h1>
+        <p>Select a breed and the number of images you'd like to explore.</p>
+      </div>
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Choose Your Breed</legend>
           <label htmlFor="breed">Select Breed:</label>
-          <select id="breed" name="breed" required>
-            <option value="" disabled selected>
+          <select
+            id="breed"
+            name="breed"
+            value={selectedBreed} // Controlled input
+            onChange={(e) => setSelectedBreed(e.target.value)}
+            required
+          >
+            <option value="" disabled>
               Choose a breed
             </option>
-            {breeds.map((b) => (
-              <option key={b} value={b}>
-                {b}
+            {breeds.map((breed) => (
+              <option key={breed} value={breed}>
+                {breed}
               </option>
             ))}
           </select>
@@ -63,7 +73,8 @@ const BreedSelector = ({ setBreed, setNumImages, loading }) => {
             type="submit"
             disabled={loading}
           >
-            {loading ? "Loading..." : <><FaSearch style={{ marginRight: '8px' }} /> Build Your Gallery</>}
+            <FaSearch style={{ marginRight: '8px' }} />
+            {loading ? 'Loading...' : 'Build Your Gallery'}
           </motion.button>
         </fieldset>
       </form>
