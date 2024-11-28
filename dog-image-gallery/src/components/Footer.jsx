@@ -1,13 +1,7 @@
-
 const Footer = () => (
   <footer>
-    <p>&copy; Doggies</p>
+    <p>&copy; 2024 Dog Image Gallery. All rights reserved.</p>
   </footer>
-  return (
-    <div>
-      
-    </div>
-  )
-)
+);
 
-export default Footer
+export default Footer;
