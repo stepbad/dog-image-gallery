@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
-const BreedSelector = ({ setBreed, setNumImages }) => {
+const BreedSelector = ({ setBreed, setNumImages, loading }) => {
   const [breeds, setBreeds] = useState([]);
   const navigate = useNavigate();
 
@@ -61,9 +61,9 @@ const BreedSelector = ({ setBreed, setNumImages }) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             type="submit"
+            disabled={loading}
           >
-            <FaSearch style={{ marginRight: '8px' }} />
-            Build Your Gallery
+            {loading ? "Loading..." : <><FaSearch style={{ marginRight: '8px' }} /> Build Your Gallery</>}
           </motion.button>
         </fieldset>
       </form>
