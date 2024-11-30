@@ -6,7 +6,6 @@ body {
   color: #333;
 }
 
-/* Header Styling */
 header {
   background-color: #222;
   color: white;
@@ -27,6 +26,7 @@ header .logo {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
+  flex: auto;
   margin-left: 45px;
   margin-right: 30px;
   text-transform: uppercase;
@@ -38,14 +38,23 @@ header .logo:hover {
   color: #4db6e2;
 }
 
-header .logo #firstLogoLetter,
-header .logo #secondLogoLetter {
+header .logo #firstLogoLetter {
   font-size: 2rem;
   color: #4db6e2;
   transition: font-size 0.3s ease, color 0.3s ease;
 }
 
-header .logo #firstLogoLetter:hover,
+header .logo #firstLogoLetter:hover {
+  font-size: 2.5rem;
+  color: #ccc;
+}
+
+header .logo #secondLogoLetter {
+  font-size: 2rem;
+  color: #ccc;
+  transition: font-size 0.3s ease, color 0.3s ease;
+}
+
 header .logo #secondLogoLetter:hover {
   font-size: 2.5rem;
   color: #38a0c3;
@@ -66,7 +75,6 @@ header nav .nav-link:hover {
   color: #4db6e2;
 }
 
-/* Footer Styling */
 footer {
   background-color: #222;
   color: white;
@@ -219,8 +227,13 @@ form button[disabled] {
 .gallery-message {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   text-transform: capitalize;
+}
+
+#galleryMessage {
+  color :#4db6e2
 }
 
 .gallery {
@@ -266,9 +279,9 @@ form button[disabled] {
 }
 
 .gallery img:hover {
-  transform: scale(1.1);
+  transform: scale(1.4);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-  filter: brightness(1.2);
+  filter: brightness(1.4);
 }
 
 .gallery figcaption {

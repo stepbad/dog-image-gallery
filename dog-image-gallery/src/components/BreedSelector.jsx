@@ -25,7 +25,7 @@ const BreedSelector = ({ setBreed, setNumImages, loading }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    setBreed(selectedBreed); // Use the controlled state for the breed
+    setBreed(selectedBreed); 
     setNumImages(formData.get('numImages'));
     navigate('/gallery');
   };
@@ -34,7 +34,6 @@ const BreedSelector = ({ setBreed, setNumImages, loading }) => {
     <main>
       <div className="magnify-container">
         <h1>Welcome</h1>
-        <p>Select a breed and the number of images you'd like to explore.</p>
       </div>
       <form onSubmit={handleSubmit}>
         <fieldset>
@@ -43,7 +42,7 @@ const BreedSelector = ({ setBreed, setNumImages, loading }) => {
           <select
             id="breed"
             name="breed"
-            value={selectedBreed} // Controlled input
+            value={selectedBreed} 
             onChange={(e) => setSelectedBreed(e.target.value)}
             required
           >
@@ -63,7 +62,7 @@ const BreedSelector = ({ setBreed, setNumImages, loading }) => {
             name="numImages"
             min="1"
             max="100"
-            defaultValue="5"
+            defaultValue="12"
             required
           />
           <motion.button

@@ -9,7 +9,7 @@ import './style.css';
 
 function App() {
   const [breed, setBreed] = useState('');
-  const [numImages, setNumImages] = useState(5);
+  const [numImages, setNumImages] = useState(12);
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -51,7 +51,7 @@ function App() {
                   initial={{ opacity: 0, x: -100 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 100 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.8 }}
                 >
                   <BreedSelector
                     setBreed={setBreed}
@@ -68,7 +68,7 @@ function App() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.8 }}
                 >
                   {loading ? (
                     <div className="loader"></div>

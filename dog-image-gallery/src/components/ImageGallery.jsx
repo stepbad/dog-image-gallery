@@ -6,7 +6,7 @@ const ImageGallery = ({ images, breed }) => (
   <section aria-label={`Gallery of ${breed}`}>
     {/* Dynamic Message */}
     <div className="gallery-message">
-      Please enjoy these images of {breed} dogs.
+     Enjoy these images of {breed} dogs from <span id="galleryMessage">Dog CEO API</span>
     </div>
     <div className="gallery">
       {images.map((img, idx) => (
@@ -22,7 +22,7 @@ const ImageGallery = ({ images, breed }) => (
             loading="lazy"
             tabIndex="0"
           />
-          <figcaption>{`Image ${index + 1} of the ${breed} collection`}</figcaption>
+          <figcaption>{`Image ${idx + 1} of the ${breed} collection`}</figcaption>
         </motion.figure>
       ))}
     </div>
