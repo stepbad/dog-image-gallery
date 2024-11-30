@@ -1,3 +1,7 @@
+  {/*
+        Stephen Badcock sd12 qap3, dog-image-gallery from dogCEOapi.
+        2024-11-30
+      */}
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
