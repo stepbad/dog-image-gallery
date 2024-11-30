@@ -13,7 +13,7 @@ const BreedSelector = ({ setBreed, setNumImages, loading }) => {
       try {
         const res = await fetch('https://dog.ceo/api/breeds/list/all');
         const data = await res.json();
-        setBreeds(Object.keys(data.message)); // Extract breed names
+        setBreeds(Object.keys(data.message)); 
       } catch (error) {
         console.error('Error fetching breeds:', error);
       }
@@ -33,7 +33,7 @@ const BreedSelector = ({ setBreed, setNumImages, loading }) => {
   return (
     <main>
       <div className="magnify-container">
-        <h1>Welcome to the Dog Image Gallery</h1>
+        <h1>Welcome</h1>
         <p>Select a breed and the number of images you'd like to explore.</p>
       </div>
       <form onSubmit={handleSubmit}>
