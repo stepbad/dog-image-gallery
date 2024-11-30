@@ -35,6 +35,7 @@ npm install framer-motion
 Start the application by running:
 
 npm run dev
+
 This will start a local development server and provide a URL (e.g., http://localhost:5173/).
 
 Open this URL in your browser to view the application.
