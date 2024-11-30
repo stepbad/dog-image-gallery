@@ -1,4 +1,3 @@
-/* Global Styles */
 body {
   font-family: 'Poppins', sans-serif;
   background: white;
@@ -106,7 +105,6 @@ footer .social-links a:hover {
   color: #4db6e2;
 }
 
-/* Main Content Styling */
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -119,14 +117,12 @@ main {
   min-height: calc(100vh - 200px);
 }
 
-/* Error Message Styling */
 .error-message {
   color: red;
   font-size: 1.2rem;
   margin-top: 20px;
 }
 
-/* Heading and Description Styling */
 main h1 {
   font-size: 2.5rem;
   font-weight: bold;
@@ -140,7 +136,6 @@ main p {
   color: #555;
 }
 
-/* Form Styling */
 form {
   background: white;
   border-radius: 10px;
@@ -221,7 +216,6 @@ form button[disabled] {
   cursor: not-allowed;
 }
 
-/* Gallery Page Message */
 .gallery-message {
   font-size: 1.5rem;
   font-weight: bold;
@@ -229,7 +223,6 @@ form button[disabled] {
   text-transform: capitalize;
 }
 
-/* Gallery Styling */
 .gallery {
   display: grid;
   gap: 20px;
@@ -284,13 +277,13 @@ form button[disabled] {
   color: #555;
 }
 
-/* Magnify/Sparkle Effect for Entire Area */
+/* Magnify/Sparkle Effect*/
 .magnify-container {
   position: relative;
   display: inline-block;
-  padding: 20px 40px; /* Increase the interactive area */
+  padding: 20px 40px; 
   overflow: hidden;
-  border-radius: 10px; /* Optional: Add rounded edges */
+  border-radius: 10px; 
 }
 
 .magnify-container::before {
@@ -298,8 +291,8 @@ form button[disabled] {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100px; /* Size of the magnifying radius */
-  height: 100px;
+  width: 80px; 
+  height: 80px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(178, 223, 243, 0.5), transparent);
   transform: translate(-50%, -50%);
@@ -329,7 +322,6 @@ form button[disabled] {
   }
 }
 
-/* Navigation Buttons Styling */
 .nav-buttons {
   display: flex;
   justify-content: center;
@@ -341,7 +333,7 @@ form button[disabled] {
 }
 
 .nav-buttons button {
-  background-color: #4db6e2; /* Ice blue color */
+  background-color: #4db6e2;
   color: white;
   border: none;
   padding: 10px 20px;

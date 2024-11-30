@@ -8,7 +8,6 @@ const BreedSelector = ({ setBreed, setNumImages, loading }) => {
   const [selectedBreed, setSelectedBreed] = useState(''); // Controlled state for dropdown
   const navigate = useNavigate();
 
-  // Fetch list of breeds
   useEffect(() => {
     const fetchBreeds = async () => {
       try {

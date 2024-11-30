@@ -22,7 +22,7 @@ const ImageGallery = ({ images, breed }) => (
             loading="lazy"
             tabIndex="0"
           />
-          <figcaption>Image {idx + 1}</figcaption>
+          <figcaption>{`Image ${index + 1} of the ${breed} collection`}</figcaption>
         </motion.figure>
       ))}
     </div>
