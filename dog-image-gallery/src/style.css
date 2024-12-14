@@ -1,6 +1,6 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background: white;
+  background: #222;
   margin: 0;
   padding: 0;
   color: #333;
@@ -9,7 +9,7 @@ body {
 header {
   display: flex;
   justify-content: center;
-  background-color: #222;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
   color: white;
   padding: 1rem;
   position: fixed;
@@ -105,7 +105,7 @@ footer .social-links {
 }
 
 footer .social-links a {
-  color: white;
+  color: #38a0c3;
   font-size: 1.5rem;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -143,14 +143,15 @@ main h1 {
 main p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  color: #555;
+  color: #fff;
 }
 
 form {
-  background: white;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
   border-radius: 10px;
+  color: #fff;
   padding: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(200, 200, 200, 0.5);
   margin-bottom: 20px;
   max-width: 500px;
   text-align: center;
@@ -175,12 +176,14 @@ form label {
   text-align: left;
   font-size: 1.2rem;
   margin: 10px 0 5px;
-  color: #333;
+  color: #fff;
 }
 
 form select,
 form input {
-  width: 100%;
+  width: 70%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+  color: #fff;
   max-width: 300px;
   padding: 15px;
   font-size: 1rem;
@@ -188,6 +191,8 @@ form input {
   border-radius: 5px;
   margin-bottom: 15px;
   transition: border-color 0.2s ease;
+  box-shadow: 0 4px 10px rgba(200, 200, 200, 0.5);
+
 }
 
 form select:focus,
@@ -231,11 +236,12 @@ form button[disabled] {
   font-weight: bold;
   margin-top: 30px;
   margin-bottom: 30px;
-  text-transform: capitalize;
+  color :#fff;
 }
 
-#galleryMessage {
-  color :#4db6e2
+#gallery-message2 {
+  text-transform: capitalize;
+  color:#4db6e2;
 }
 
 .gallery {

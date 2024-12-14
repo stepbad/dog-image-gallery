@@ -6,7 +6,7 @@ const ImageGallery = ({ images, breed }) => (
   <section aria-label={`Gallery of ${breed}`}>
     {/* Dynamic Message */}
     <div className="gallery-message">
-     Enjoy these images of {breed} dogs from <span id="galleryMessage">Dog CEO API</span>
+     Enjoy these images of {breed} dogs from <span id="galleryMessage2">Dog CEO API</span>
     </div>
     <div className="gallery">
       {images.map((img, idx) => (
